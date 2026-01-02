@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MajorityElement2Optimal {
     public static void main(String[] args) {
         int[] arr={1,1,1,1,3,2,2,2};
@@ -24,7 +27,20 @@ public class MajorityElement2Optimal {
             }
 
         }
-        System.out.println(elem1);
-        System.out.println(elem2);
+        cnt1 = 0;
+        cnt2 = 0;
+
+        for (int num : arr) {
+            if (num == elem1) cnt1++;
+            else if (num == elem2) cnt2++;
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        int n = arr.length;
+
+        if (cnt1 > n / 3) ans.add(elem1);
+        if (cnt2 > n / 3) ans.add(elem2);
+
+        System.out.println(ans);
     }
 }
